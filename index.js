@@ -4,10 +4,13 @@ const sanityClient = require('@sanity/client')
 
 var request = require("request");
 
+var path = require('path');
+
 
 const port = process.env.PORT || 3000;
 
 let app = express();
+
 
 const bodyParser = require('body-parser')
 
@@ -18,6 +21,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json())
 
 
+
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -25,10 +29,10 @@ app.use(function(req, res, next) {
 });
 
 const client = sanityClient({
-  projectId: 'tjpib6xg',
-  dataset: 'blackbox',
-  token: 'sk00stWCzAJPzpbwwAbz1MNMTpAdQXkbVs3JEI8HOxLkqAUi7DJTGIbcMLo99MJim5qa6HeNtY6dZz3AXieLGGmGjO8aDQ8x3ufBALceDbUeGmpIX4ZKy8GQ2beR95gbVsSIboDzdmz989a2V0avrU8xekChyUGsO8qVvcfFRUkvaga7CuaA',
-  useCdn: false // `false` if you want to ensure fresh data
+  projectId: 'fsygm6xc',
+    dataset: 'dummydata',
+    token: "skYyKICuVUb7uDUk4TEhhe1XQAbrul1YXrdQ5W6ZmFGxFs6LpGkCxhvgIMG5mpKqM1fXwNxcqgWC1gABvzVtqAE6yItn2sXaGkKgG1yW1q9Fi0Bum5KOl9T5vdUymHc1NKOdNLB88Ep0uPt0yuqxRw97ihgC7XCiBaqXoCzQS8ImyJGaEGvs",
+    useCdn: false
 })
 
 
@@ -86,9 +90,9 @@ app.post('/gencode', function (req, res, ) {
     body: 
     { tags: [ 'supertest' ],
       sender: 
-        { email: email,
-          name: 'eirik.kvistad@gmail.com' },
-          replyTo: { email: 'designverkstedet.ntnu@gmail.com', name: 'Designverk' },
+        { email: 'designverkstedet.ntnu@gmail.com',
+          name: 'NTNU Makerspace' },
+          replyTo: { email: 'designverkstedet.ntnu@gmail.com', name: 'NTNU Makerspace' },
           subject: 'Sikkerhetskode, designverkstedet',
           to: [ { email: email, name: navn } ],
           textContent: `din sikkerhetskode er: ${key}` },
@@ -96,8 +100,7 @@ app.post('/gencode', function (req, res, ) {
 
     request(options, function (error, response, body) {
       if (error) throw new Error(error);
-
-      console.log(body);
+      res.end(JSON.stringify({result: response}))
     })
 
 
@@ -105,6 +108,41 @@ app.post('/gencode', function (req, res, ) {
   }
 
   
+})
+
+app.set("view engine", "ejs");
+
+app.use(express.static('public'));
+app.use(express.static('staticPages'));
+
+app.get('/home', function(req, res) {
+  res.sendFile(path.join(__dirname, '/staticPages', 'index.html'));
+});
+
+app.get('/getpage/:slug', function (req, res ) {
+
+  var param = "'" +  req.params.slug + "'";
+  
+  const query2 = `*[_type == 'post' && slug.current == ${param}]{"url": mainImage[0...4].asset->url,"alt": mainImage[0...4].alt, "title": title, "dateFrom": from, "time": tid, "author": author -> name, "slug": slug, "course": course, "tech": tech, "cat": categories[0] -> title, "body": body}`
+  client
+   .fetch(query2)
+   .then(response => {
+     console.log(response)
+    res.render("projectpage", {result : response});
+    })
+})
+
+app.get('/getEvent/:id', function (req, res ) {
+
+  var param = "'" +  req.params.id + "'";
+  
+  const query3 = `*[_type == 'test' && _id == ${param}]`
+  client
+   .fetch(query3)
+   .then(response => {
+     console.log(response)
+    res.render("eventpage", {result : response});
+    })
 })
 
 

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="styling/style.css">
+    <link rel="stylesheet" type="text/css" href="styling/dropdown.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Designverkstedet</title>
+    <script src="https://kit.fontawesome.com/4ba334754d.js"></script>
+    
+</head>
+<body>
+    <header>
+        <div>
+            <a href="./index.html"><img src="./assets/nyLogo_lang.png" alt="Logo - Designverkstedet"></a>
+        </div>
+        <div>  
+            <ul>
+                <li><a>Logg inn/Registrer deg</a></li>
+                <li>
+                    <a>EN/</a>
+                    <a>NO</a>
+                </li>
+            </ul>
+            <nav>
+                <ul>
+                    <li><a href="./prosjekter.html">Prosjekter</a></li>
+                    <li><a href="./aktiviteter.html">Aktiviteter</a></li>
+                    <li>
+                        <div class="dropdown">
+                        <p>Informasjon <i class="fas fa-chevron-down"></i></p>
+                            <ul class="dropdown-content">
+                                <li>
+                                    <p><a href="./omoss.html">Om Oss</a></p>
+                                </li>
+                                <li>
+                                    <p>Tilgjengelig utstyr</p>
+                                </li>
+                                <li>
+                                    <p>Sertifikasjoner</p>
+                                </li>
+                                <li>
+                                    <p>Kurs</p>
+                                </li>
+                                <li>
+                                    <p>Samarbeidspartnere</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <form id="loginform">
+            <div>
+                <label for="username">Brukernavn</label>
+                <input type = "text" id="username">
+                <label for="pass">Passord</label>
+                <input type = "text" id="pass">
+            </div>
+            <div>
+                <label for="stayLogged">Forbli pålogget</label>
+                <input type ="checkbox" id="stayLogged">
+            </div>
+            <p><a>Glemt Passord?</a> | <a href="./newuser.html">Registrer deg</a></p>
+            <button for="loginform">Logg inn</button>
+
+        </form>
+    </header>
+    <section class= "mainContLandingpage">
+        <img src="./assets/office2.png" alt="kontor - Designverkstedet">
+        <div>
+            <figure class="boxContainer">
+                <img src="./assets/emptyphoto.png">
+                <figcaption>
+                    <h2>Prosjekt 1</h2>
+                    <p>av ola Nordmann</p>
+                    <p>Dette er en offisielle siden for Designverkstedet NTNU, her kan du finne all informasjon du trenger om verkstedet. Alle prosjekter, pågående. Les mer</p>
+                </figcaption>
+            </figure>
+            <figure class="boxContainer">
+                <img src="./assets/emptyphoto.png">
+                <figcaption>
+                    <h2>Prosjekt 2</h2>
+                    <p>av ola Nordmann</p>
+                    <p>Dette er en offisielle siden for Designverkstedet NTNU, her kan du finne all informasjon du trenger om verkstedet. Alle prosjekter, pågående. Les mer</p>
+                </figcaption>
+            </figure>
+            <figure class="boxContainer">
+                <img src="./assets/emptyphoto.png">
+                <figcaption>
+                    <h2>Prosjekt 3</h2>
+                    <p>av ola Nordmann</p>
+                    <p>Dette er en offisielle siden for Designverkstedet NTNU, her kan du finne all informasjon du trenger om verkstedet. Alle prosjekter, pågående. Les mer</p>
+                </figcaption>
+            </figure>
+        </div>
+    </section>
+    <footer>
+        <div>
+            <p>Kontakt Oss</p>
+            <p>designverkstedet.ntnu@gmai.com</p>
+        </div>
+        <div>
+            <p>Adresse</p>
+            <p>NTNU Gjøvik</p>
+            <p>Teknologivegen 22</p>
+            <p>2815 Gjøvik</p>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/@sanity/client@latest?main=umd"></script>
+    <script src="/sanityConfig.js"></script>
+    <script src="/login.js"></script>
+    <script>
+    window.addEventListener("load", event => {
+        let latestProjects = document.querySelectorAll(".boxContainer")
+        client.fetch('*[_type == "post"][0..2]{"title": title, "author": author -> name, "url": mainImage[0].asset->url, "slug": slug, "body": body[0].children[0].text}').then(res => {
+            res.forEach((resp, idx) => {
+                latestProjects[idx].children[0].src = resp.url;
+
+                latestProjects[idx].children[1].innerHTML = `<h2>${resp.title}</h2>
+                    <p>${resp.author}</p>
+                    <p>${resp.body}</p>`
+            })
+           
+        })
+        
+    })
+    </script>
+</body>
+</html>

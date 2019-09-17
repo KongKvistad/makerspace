@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet"  href="/styling/dynamic.css">
+    <title>Document</title>
+</head>
+<body>
+        <header>
+                <div>
+                    <a href="./index.html"><img src="../assets/nyLogo_lang.png" alt="Logo - Designverkstedet"></a>
+                </div>
+                <div>  
+                    <ul>
+                        <li><a>Logg inn/Registrer deg</a></li>
+                        <li>
+                            <a>EN/</a>
+                            <a>NO</a>
+                        </li>
+                    </ul>
+                    <nav>
+                        <ul>
+                            <li><a href="./prosjekter.html">Prosjekter</a></li>
+                            <li><a href="./aktiviteter.html">Aktiviteter</a></li>
+                            <li>
+                                <div class="dropdown">
+                                    <p>Informasjon <i class="fas fa-chevron-down"></i></p>
+                                    <ul class="dropdown-content">
+                                        <li>
+                                            <p>Tilgjengelig utstyr</p>
+                                        </li>
+                                        <li>
+                                            <p>Sertifikasjoner</p>
+                                        </li>
+                                        <li>
+                                            <p>Kurs</p>
+                                        </li>
+                                        <li>
+                                            <p>Samarbeidspartnere</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <form id="loginform">
+                    <div>
+                        <label for="username">Brukernavn</label>
+                        <input type = "text" id="username">
+                        <label for="pass">Passord</label>
+                        <input type = "text" id="pass">
+                    </div>
+                    <div>
+                        <label for="stayLogged">Forbli pålogget</label>
+                        <input type ="checkbox" id="stayLogged">
+                    </div>
+                    <p><a>Glemt Passord?</a> | <a>Registrer deg</a></p>
+                    <button for="loginform">Logg inn</button>
+        
+                </form>
+            </header>
+    <section class="mainContProjectPage">
+        <h1><%= result[0].name%></h1>
+        <dl>
+            <dt>Dato</dt>
+            <dd> <%= new Date(result[0].dato)%></dd>
+            <dt>Varighet</dt>
+            <dd> <%= result[0].varighet %></dd>
+            <dt>servering</dt>
+            <dd> <%= result[0].servering %></dd>
+            <dt>plasser</dt>
+            <dd> <%= result[0].plasser %></dd>
+            <dt>kursholder</dt>
+            <dd> <%= result[0].kursholder %></dd>
+        </dl>
+        <p><%= result[0].desc%></p>
+        
+    </section>
+    <footer>
+        <div>
+            <p>Kontakt Oss</p>
+            <p>designverkstedet.ntnu@gmai.com</p>
+        </div>
+        <div>
+            <p>Adresse</p>
+            <p>NTNU Gjøvik</p>
+            <p>Teknologivegen 22</p>
+            <p>2815 Gjøvik</p>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/@sanity/client@latest?main=umd"></script>
+    <script>
+    fetch("https://fsygm6xc.api.sanity.io/v1/data/query/dummydata?query=*[_type == 'post']")
+    .then( res => res.json())
+    .then (response => console.log(response.result))
+    </script>
+        <script src="/login.js"></script>
+    
+</body>
+</html>

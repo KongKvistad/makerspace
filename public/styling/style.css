@@ -1,0 +1,585 @@
+body {
+    font-family: Helvetica;
+    margin: 0px;
+}
+
+a {
+    color: #6C6C6C;
+}
+a {
+    text-decoration: none;
+}
+
+
+/*header for all pages */
+
+
+header {
+    display: flex;
+    height: fit-content;
+    justify-content: space-around;
+    
+}
+
+header > div:nth-child(1) {
+    align-items: center;
+    justify-content: flex-start;
+    display: flex;
+    padding-left: 4.2vw;
+}
+
+header > div:nth-child(1) > a > img {
+    padding-top: 14px;
+    padding-bottom: 18px;
+    width:20em;
+    
+}
+
+
+header > div:nth-child(2) {
+ 
+    color: #6C6C6C;
+    margin-right: 8em;
+    margin-top: 2em;
+    overflow: initial;
+    height: fit-content;
+
+}
+header > div:nth-child(2) > ul {
+    display: grid;
+    grid-template-columns:  repeat(3, 11.5em);
+    list-style: none;
+    padding: 0%;
+    margin-top: 0%;
+    margin-bottom: 1vh;
+    
+    
+    
+}
+header > div:nth-child(2) > ul > li:nth-child(1) {
+    grid-column: 2/3;
+    font-size: 15px;
+    justify-self: center;
+    
+}
+header > div:nth-child(2) > ul > li:nth-child(2) {
+    grid-column: 3/4;
+    font-size: 15px;
+    text-align: right;
+}
+
+header > div:nth-child(2) > nav > ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    margin-top: 1.4em;
+    padding: 0%;
+    text-align: right;
+    font-size: 18px;
+    letter-spacing: 1px;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    width: 28em;
+    
+}
+
+.dropdown-content {
+    display: none;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover > p{
+    color: #EA5C1A;
+}
+
+.dropdown:hover > p >i{
+    transform: rotate(180deg);
+}
+
+header > form {
+
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    border-radius: 6px;
+    display: none;
+    position: absolute;
+    height: 20em;
+    width: 20em;
+    background-color: white;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 30px 20px 10px 20px;
+    top: 20vh;
+    z-index: 10;
+    box-shadow: 5px 6px 9px 3px #0000007d;
+
+}
+header > form >  button {
+    align-self: center;
+}
+header > form > div:nth-child(1) {
+    display: flex;
+    flex-direction: inherit;
+}
+
+header > form > div:nth-child(2) {
+    display: flex;
+    flex-direction: row;
+}
+
+
+header > form > div:nth-child(1) > input {
+    height: 30px;
+    width: 18vw;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+header > form > button {
+    width: 100px;
+    height: 30px;
+    background-color: #EA5C1A;
+}
+
+
+/*body of index.html */
+
+.mainContLandingpage {
+    display: grid;
+    grid-template-rows: 39em auto;
+    grid-template-columns: auto;
+    justify-items: center;
+    
+
+}
+
+.mainContLandingpage > img {
+    width: 71.5vw;
+    height: 36em;
+    object-fit: none;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    z-index: -1;
+}
+
+.mainContLandingpage > div {
+    display: grid;
+    grid-template-columns: repeat(3, 23.7vw);
+    justify-content: center;
+
+}
+.mainContLandingpage > div > figure {
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    color:  #EA5C1A;
+}
+.mainContLandingpage > div > figure > figcaption > h2{
+    font-family: 'Helvetica';
+    text-transform: uppercase;
+    font-size: 30px;
+}
+.mainContLandingpage > div > figure > figcaption > p:nth-child(2){
+    color: grey;
+}
+.mainContLandingpage > div > figure > figcaption > p:nth-child(3){
+    font-family: 'Verdana';
+    color: black;
+    font-size: 15px;
+}
+.mainContLandingpage > div > figure > img{
+    object-fit: none;
+    height: 20vw;
+    width: 20vw;
+    
+    
+}
+.mainContLandingpage > div > figure > figcaption{
+    width: 20vw;
+}
+
+.mainContLandingpage > div > figure:nth-child(1) {
+    align-items: flex-start;
+}
+
+.mainContLandingpage > div > figure:nth-child(2) {
+    align-items: center;
+}
+
+.mainContLandingpage > div > figure:nth-child(3) {
+    align-items: flex-end;
+}
+
+
+
+
+
+
+/* body of events*/
+
+.mainContEvents {
+    width: 99vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainContEvents > div:nth-child(1) {
+    width: 55vw;
+    margin-right: 6vw;
+    margin-bottom: 80px;
+}
+
+.mainContEvents > div:nth-child(1)> h1 {
+    font-size: 50px;
+    color:  #EA5C1A;
+}
+.mainContEvents > div:nth-child(1)> p {
+    font-size: 20px;
+    font-family: 'Verdana';
+}
+
+.mainContEvents > div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+/*calendar*/
+
+
+.event {
+    display:flex;
+    margin-bottom: 6vh;
+}
+
+.event > div:nth-child(1) {
+    background-color:#EA5C1A;
+    height: 179px;
+    width: 198px;
+}
+
+.event > div:nth-child(2) {
+    width: 35vw;
+}
+
+.event h2, .event p {
+    margin: 0px 0px 15px 40px;
+}
+
+.event h2 {
+    font-size: 35px;
+    color:#EA5C1A;
+    font-family: 'helvetica';
+    text-transform: capitalize;
+}
+
+.event p {
+    font-size: 20px;
+    font-family: 'Verdana';
+    font-weight: 200;
+}
+
+.event p:nth-child(3) {
+    text-align: right;
+    color: #EA5C1A;
+    text-decoration: underline;
+}
+
+.event h3 {
+    font-size: 70px;
+    text-align: -webkit-center;
+    margin: 5px 0px 0px 0px;
+    color: white;
+}
+
+
+
+
+
+/*maincontent-projects*/
+#scrollToTop{
+    position: fixed;
+    top: 40vh;
+    right: 5vw;
+    position: fixed;
+}
+
+.mainContProjects {
+    height: 260vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.mainContProjects > div:nth-child(1) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+    height: 60%;
+
+}
+.mainContProjects >div >  span {
+    display: flex;
+    align-items: center;
+    z-index: 4;
+}
+.mainContProjects > div > input {
+    width: 29vw;
+    height: 40%;
+    border-radius: 5px;
+    z-index: 4;
+}
+
+#searchmenu {
+    position: relative;
+    top: 100px;
+    right: 12vw;
+    background-color: white;
+    z-index: 4;
+    display: none;
+}
+#searchmenu ul{
+    padding: 10px;
+    margin: 0px;
+}
+#searchmenu li{
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Helvetica';
+}
+#searchmenu ul li {
+    display: flex;
+}
+
+#searchmenu > ul > li > p {
+    margin: 10px 20px 10px 0px;
+}
+#overlay {
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(23, 23, 23, 0.5);
+    z-index: 3;
+    display:none;
+}
+.mainContProjects > div:nth-child(2) > ul {
+    display: grid;
+    grid-template-rows: repeat(6, 40vh);
+    grid-template-columns: 30vw 30vw;
+    justify-items: stretch;
+    align-items: center;
+    grid-gap: 10px;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.hover:hover {
+    opacity: 0;
+    transition: .5s ease;   
+}
+
+.hover {
+    background-color: black;
+    opacity: 0.5;
+    
+    width: 30vw;
+    height:40vh;
+
+    position: absolute;
+
+    transition: .5s ease;  
+}
+
+.mainContProjects >div > ul > li > a> figure > h1 {
+    margin: 0px;
+    text-transform: uppercase;
+    position: relative;
+    color: white;
+    z-index: 2;
+    left: 16px;
+    top: 38vh;
+    font-size: 30px;
+}
+
+.mainContProjects > div > ul > li > a > figure > div:nth-child(1) {
+    position: absolute;
+    background-color: black;
+    opacity: 0;
+    width: 30vw;
+    height: 11%;
+    
+}
+
+
+
+.mainContProjects > div > ul >li > a > figure, .mainContProjects > div >ul >li >a > figure > img {
+    width: 100%;
+    max-height: 40vh;
+    min-height: 40vh;
+    object-fit: cover;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin: 0px;
+   
+}
+
+
+/*publish page*/
+.mainContPublish{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mainContPublish > form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mainContPublish textarea {
+    width: 78%;
+    margin-right: 8%;
+    height: 22vh;
+
+}
+
+.mainContPublish > h1 {
+    color: #EA5C1A;
+    text-transform: uppercase;
+    margin-left: 22vw;
+    align-self: flex-start;
+}
+
+.topBtns {
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, 28vw);
+    grid-template-rows: repeat(3, 14vh);
+}
+
+.topBtns > div {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+}
+.topBtns > div > input {
+    height: 5vh;
+    width: 80%;
+}
+
+.radioBtns {
+    display: flex;
+    justify-content: center;
+    margin-left: 14vw;
+    margin-bottom: 1em;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.container input {
+    visibility: hidden;
+}
+
+input[name='skaper'] + label + ul {
+    margin: 0px;
+    list-style: none;
+    background-color: rgb(225, 225, 225);
+    padding: 0px;
+    position: absolute;
+    top: 42vh;
+    width: 22%;
+    
+}
+
+
+
+/*image container*/
+
+
+
+.preview > ol {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-right: 8vw;
+}
+.preview > ol > li {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.preview > ol > li > img {
+    width: 12em;
+    height: 8em;
+}
+
+
+
+.img-cross {
+    width: 30px;
+    height: 30px;
+    background-color: #efecec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    position: relative;
+    bottom: 115px;
+    left: 20px;
+}
+
+#submitForm{
+    background-color: #EA5C1A;
+    width: 10em;
+    height: 3em;
+    align-self: center;
+    margin-bottom: 3em;
+    color: white; 
+}
+
+/*footer*/
+
+
+footer{
+    background-color: #EA5C1A;
+    padding: 20px;
+}
+
+footer > div{
+    color: white;
+    font-size: 15px;
+    width: 10vw;
+    margin-left: 12vw;
+    margin-bottom: 20px;
+}
+footer > div > p {
+    margin: 5px;
+}
+
+footer > div > p:nth-child(1) {
+    font-weight: bold;
+    text-transform: uppercase;
+}

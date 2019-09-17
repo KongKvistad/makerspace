@@ -1,0 +1,79 @@
+.mainSignUp {
+
+    display: flex;
+    flex-direction: column;
+    height: 30em;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Helvetica';
+    color:#6C6C6C;
+    font-weight: bold;
+    font-size: 20px;
+}
+.mainSignUp .clicked{
+    -webkit-animation: flip-vertical-left 0.8s cubic-bezier(0.680, -0.550, 0.265, 1.550) both;
+            animation: flip-vertical-left 0.8s cubic-bezier(0.680, -0.550, 0.265, 1.550) both;
+}
+
+@-webkit-keyframes flip-vertical-left {
+    0% {
+      -webkit-transform: rotateY(0);
+              transform: rotateY(0);
+    }
+    100% {
+      -webkit-transform: rotateY(-180deg);
+              transform: rotateY(-180deg);
+    }
+  }
+  @keyframes flip-vertical-left {
+    0% {
+      -webkit-transform: rotateY(0);
+              transform: rotateY(0);
+    }
+    100% {
+      -webkit-transform: rotateY(-180deg);
+              transform: rotateY(-180deg);
+    }
+  }
+
+.mainSignUp  > form {
+    display: flex;
+    flex-direction: column;
+    width: 20em;
+    margin-bottom: 5em;
+    margin-top: 1em;
+
+    box-shadow: 1px 1px 1px black;
+    box-shadow: 6px 8px 11px 0px #0000002e;
+    padding: 30px;
+    border: 1px solid rgba(203, 203, 203, 0.173);
+    border-radius: 15px;
+}
+.mainSignUp  > form input {
+    height: 3em;
+    margin-bottom: 10px;
+}
+
+.mainSignUp  > form button {
+    height: 3em;
+    background-color: orange;
+}
+header > div{
+    padding: 0px !important;
+}
+
+.mainSignUp  > form >p  {
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+#backBtn  {
+    display: none;
+    align-items: center;
+    
+}
+#backBtn > a{
+    font-size: 33px;
+    font-weight: 300;
+    padding-left: 13px;
+}

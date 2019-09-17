@@ -6,6 +6,7 @@
   "dependencies": {
     "@sanity/client": "^0.140.11",
     "body-parser": "^1.18.3",
+    "ejs": "^2.6.2",
     "express": "^4.16.4",
     "nodemailer": "^5.1.1",
     "request": "^2.88.0",

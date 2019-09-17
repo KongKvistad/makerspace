@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="styling/style.css">
+    <link rel="stylesheet" type="text/css" href="styling/newuser.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/4ba334754d.js"></script>
+    <title>Designverkstedet sign-up</title>  
+</head>
+<body>
+    <header>
+        <div>
+            <a href="./index.html"><img src="./assets/logo.png" alt="Logo - Designverkstedet"></a>
+        </div>
+    </header>
+    <section class="mainAbout">
+        
+    </section>
+    <footer>
+        <div>
+            <p>Kontakt Oss</p>
+            <p>designverkstedet.ntnu@gmai.com</p>
+        </div>
+        <div>
+            <p>Adresse</p>
+            <p>NTNU Gjøvik</p>
+            <p>Teknologivegen 22</p>
+            <p>2815 Gjøvik</p>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/@sanity/client@latest?main=umd"></script>
+    <script src="./js/sanityConfig.js"></script>
+    <script>
+        client.fetch('*[_type == "styret"]').then(res => {
+            console.log(res[0].info)
+
+            let results = res[0].info;
+            results.forEach(element => {
+                element.children.forEach(e => {
+                    console.log(e.text)
+                })
+            });
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="styling/style.css">
+    <link rel="stylesheet" type="text/css" href="styling/newuser.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/4ba334754d.js"></script>
+    <title>Designverkstedet sign-up</title>  
+</head>
+<body>
+    <header>
+        <div>
+            <a href="./index.html"><img src="./assets/logo.png" alt="Logo - Designverkstedet"></a>
+        </div>
+    </header>
+    <section class="mainSignUp">
+        <div id="backBtn"><i class="fas fa-chevron-left"></i><a>Tilbake</a></div>
+        <form id="registerform">
+            <p>Hvis du ønsker å publisere prosjekter, må du registrere deg!</p>
+            <label for="username">* Navn</label>
+            <input type = "text" id="username">
+            <label for="programme">* Studie</label>
+            <input type = "text" id="programme">
+            <label for="email">* Ntnu-mail</label>
+            <input type = "email" placeholder="ola@stud.ntnu.no" id="email">
+            <label for="pass">* Passord</label>
+            <input type = "password" id="pass">
+            <button for="registerform">Registrer</button>
+        </form>
+    </section>
+    <footer>
+        <div>
+            <p>Kontakt Oss</p>
+            <p>designverkstedet.ntnu@gmai.com</p>
+        </div>
+        <div>
+            <p>Adresse</p>
+            <p>NTNU Gjøvik</p>
+            <p>Teknologivegen 22</p>
+            <p>2815 Gjøvik</p>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/@sanity/client@latest?main=umd"></script>
+    <script src="/sanityConfig.js"></script>
+    <script src="/regNewUser.js"></script>
+</body>
+</html>

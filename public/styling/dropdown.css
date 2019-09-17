@@ -1,0 +1,36 @@
+.dropdown {
+    position: absolute;
+    background-color: white;
+    height: fit-content;
+    z-index: 5;
+
+}
+
+.dropdown > ul {
+    text-align: -webkit-left;
+    list-style: none;
+    padding: 0px;
+}
+
+
+.dropdown > ul > li:hover {
+    background-color: #EA5C1A;
+
+}
+
+.dropdown > p {
+    margin:0px;
+    font-family: Helvetica;
+    text-align: left;
+    padding: 0px 0px 10px 10px;
+    
+}
+
+.dropdown > ul > li > p {
+    margin: 0px;
+    padding: 10px 10px 10px 10px;
+}
+
+.dropdown > ul > li > p:hover {
+    color: white;
+}

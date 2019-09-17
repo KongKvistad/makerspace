@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <link rel="stylesheet" type="text/css" href="styling/style.css">
+        <link rel="stylesheet" type="text/css" href="styling/dropdown.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Designverkstedet</title>
+        <script src="https://kit.fontawesome.com/4ba334754d.js"></script>
+</head>
+<body>
+    <div id="overlay"></div>
+    <img id="scrollToTop" src="./assets/Component 1.svg">
+    <header>
+            <div>
+                <a href="./index.html"><img src="./assets/nyLogo_lang.png" alt="Logo - Designverkstedet"></a>
+            </div>
+            <div>  
+                <ul>
+                    <li><a>Logg inn/Registrer deg</a></li>
+                    <li>
+                        <a>EN/</a>
+                        <a>NO</a>
+                    </li>
+                </ul>
+                <nav>
+                    <ul>
+                        <li><a href="./prosjekter.html">Prosjekter</a></li>
+                        <li><a href="./aktiviteter.html">Aktiviteter</a></li>
+                        <li>
+                            <div class="dropdown">
+                            <p>Informasjon <i class="fas fa-chevron-down"></i></p>
+                                <ul class="dropdown-content">
+                                    <li>
+                                        <p>Tilgjengelig utstyr</p>
+                                    </li>
+                                    <li>
+                                        <p>Sertifikasjoner</p>
+                                    </li>
+                                    <li>
+                                        <p>Kurs</p>
+                                    </li>
+                                    <li>
+                                        <p>Samarbeidspartnere</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <form id="loginform">
+                <div>
+                    <label for="username">Brukernavn</label>
+                    <input type = "text" id="username">
+                    <label for="pass">Passord</label>
+                    <input type = "text" id="pass">
+                </div>
+                <div>
+                    <label for="stayLogged">Forbli pålogget</label>
+                    <input type ="checkbox" id="stayLogged">
+                </div>
+                <p><a>Glemt Passord?</a> | <a>Registrer deg</a></p>
+                <button for="loginform">Logg inn</button>
+    
+            </form>
+        </header>
+    <section class="mainContProjects">
+        <div>
+            <span>
+                <p>Filter</p>
+                <svg height="30" width="30">
+                        <circle r="12" cx="15" cy="15" fill="rgb(233, 82, 0)"></circle>
+                        <text x="7" y="22" class="small" style="fill: rgb(255, 255, 255); font-size: 26px;">+</text>
+                </svg>
+            </span>
+            <div id="searchmenu">
+                <ul>
+                </ul>
+            </div>
+            <input type="text"></input>
+        </div>
+        <div>
+            <ul>
+                
+            </ul>
+            
+        </div>
+    </section>
+    <footer>
+        <div>
+            <p>Kontakt Oss</p>
+            <p>designverkstedet.ntnu@gmail.com</p>
+        </div>
+        <div>
+            <p>Adresse</p>
+            <p>NTNU Gjøvik</p>
+            <p>Teknologivegen 22</p>
+            <p>2815 Gjøvik</p>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/@sanity/client@latest?main=umd"></script>
+    <script src="/sanityConfig.js"></script>
+    <script src="js/search.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>

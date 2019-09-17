@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="styling/style.css">
+    <link rel="stylesheet" type="text/css" href="styling/dropdown.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Designverkstedet</title>
+</head>
+<body>
+    <header>
+        <div>
+            <a href="./index.html"><img src="./assets/nyLogo_lang.png" alt="Logo - Designverkstedet"></a>
+        </div>
+        <div>  
+            <ul>
+                <li><a>Logg inn/Registrer deg</a></li>
+                <li>
+                    <a>EN/</a>
+                    <a>NO</a>
+                </li>
+            </ul>
+            <nav>
+                <ul>
+                    <li><a href="./prosjekter.html">Prosjekter</a></li>
+                    <li><a href="./aktiviteter.html">Aktiviteter</a></li>
+                    <li>
+                        <div class="dropdown">
+                        <p>informasjon</p>
+                            <ul class="dropdown-content">
+                                <li>
+                                    <p>Tilgjengelig utstyr</p>
+                                </li>
+                                <li>
+                                    <p>Sertifikasjoner</p>
+                                </li>
+                                <li>
+                                    <p>Kurs</p>
+                                </li>
+                                <li>
+                                    <p>Samarbeidspartnere</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <form id="loginform">
+            <div>
+                <label for="username">Brukernavn</label>
+                <input type = "text" id="username">
+                <label for="pass">Passord</label>
+                <input type = "text" id="pass">
+            </div>
+            <div>
+                <label for="stayLogged">Forbli pålogget</label>
+                <input type ="checkbox" id="stayLogged">
+            </div>
+            <p><a>Glemt Passord?</a> | <a>Registrer deg</a></p>
+            <button for="loginform">Logg inn</button>
+
+        </form>
+    </header>
+    <section class= "mainContPublish">
+       <h1>Publiseringsskjema</h1>
+       <form id="publish" method="post" id="publish" autocomplete="off" >
+        <div class="topBtns">
+            <div>
+                <input type="text" name="navn" id="size_1">
+                <label for="size_1">Prosjektets navn</label>
+            </div>
+            <div>
+                <input type="text" name="skaper" id="size_1">
+                <label for="size_1">Skaper</label>
+                <ul></ul>
+            </div>
+            <div>
+            <input type="date" placeholder="dd-mm-yyyy" name="dato" id="size_1">
+                <label for="size_1">Dato</label>
+            </div>
+            <div>
+                <input type="text" name="tech" id="size_1">
+                <label for="size_1">Teknologi/program</label>
+            </div>
+            <div>
+                <input type="text" name="tid" id="size_1">
+                <label for="size_1">Tid</label>
+            </div>
+            <div>
+                <input type="text" name="kurs" id="size_1">
+                <label for="size_1">Kurs/prosjekt</label>
+            </div>
+        </div>
+        <div class="radioBtns">
+            <div class="container">
+                <span class="checkmark">
+                    <svg height="30" width="30">
+                        <circle r="12" cx="15" cy="15" stroke="black" stroke-width="1" fill="white"></circle>
+                        <circle class="clickable" r="9" cx="15" cy="15" stroke="black" stroke-width="1" fill="white"></circle>
+                    </svg>
+                </span>
+                <label>Makerspace-prosjekt</label>
+                <input type="radio" checked="checked" name="radio" data-id="37f6478c-962c-47fb-8299-ae6525e96dfd" data-key="4372df3dae0f">
+            </div>
+            <div class="container">
+                <span class="checkmark">
+                    <svg height="30" width="30">
+                        <circle r="12" cx="15" cy="15" stroke="black" stroke-width="1" fill="white"></circle>
+                        <circle class="clickable" r="9" cx="15" cy="15" stroke="black" stroke-width="1" fill="white"></circle>
+                    </svg>
+                </span>
+                <label>Skoleprosjekt</label>
+                <input type="radio" name="radio" data-id="addee618-213d-4c8a-85d5-2251a7ca98a9" data-key="1eef5c5331e3">
+                
+            </div>
+            <div class="container">
+                <span class="checkmark">
+                    <svg height="30" width="30">
+                        <circle r="12" cx="15" cy="15" stroke="black" stroke-width="1" fill="white"></circle>
+                        <circle class="clickable" r="9" cx="15" cy="15" stroke="black" stroke-width="1" fill="white"></circle>
+                    </svg>
+                </span>
+                <label>Privat prosjekt</label>
+                <input type="radio" name="radio" data-id="5ca2e642-99ba-4db7-98ff-85f0279f9bfc" data-key="ac77207465fc">
+            </div>
+                
+        </div>
+        <textarea></textarea>
+    <div class="preview">
+            <input type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png" multiple style="display: none;">
+            <ol>
+                <li>
+                    <img src="./assets/emptyphoto.png">
+                    <div class="img-cross">
+                        <p>+</p>
+                    </div>
+                </li>
+                <li>
+                    <img src="./assets/emptyphoto.png">
+                    <div class="img-cross">
+                        <p>+</p>
+                    </div>
+                </li>
+                <li>
+                    <img src="./assets/emptyphoto.png">
+                    <div class="img-cross">
+                        <p>+</p>
+                    </div>
+                </li>
+                <li>
+                    <img src="./assets/emptyphoto.png">
+                    <div class="img-cross">
+                        <p>+</p>
+                    </div>
+                </li>
+            </ol>
+        </div>
+        <button id="submitForm" type="submit" for="publish">Publiser</button>
+    </form>
+    </section>
+    <footer>
+            <div>
+                <p>Kontakt Oss</p>
+                <p>designverkstedet.ntnu@gmai.com</p>
+            </div>
+            <div>
+                <p>Adresse</p>
+                <p>NTNU Gjøvik</p>
+                <p>Teknologivegen 22</p>
+                <p>2815 Gjøvik</p>
+            </div>
+        </footer>
+            <script src="https://unpkg.com/@sanity/client@latest?main=umd"></script>
+            <script src="/sanityConfig.js"></script>
+        <script src="/login.js"></script>
+        <script src="/js/form.js"></script>
+        
+</body>
+</html>

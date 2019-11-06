@@ -10,7 +10,7 @@ client.fetch('*[_type == "test"]').then(res => {
         <div>
             <h2>${res[i].name}</h2>
             <p>${res[i].desc.split(' ').slice(0, 20).join(" ")}...</p>
-            <p><a href = "http://localhost:3000/getEvent/${res[i]._id}">Les mer</a></p>
+            <p><a href = "https://ntnumakerspace.herokuapp.com/getEvent/${res[i]._id}">Les mer</a></p>
         </div>
     </div>`
     };

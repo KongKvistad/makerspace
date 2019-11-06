@@ -14,7 +14,7 @@ window.addEventListener("load", event => {
     //get latest projects
     client.fetch('*[_type == "post"]{"title": title, "url": mainImage[0].asset->url, "slug": slug}').then(res => {
         res.forEach(element => {
-            projects.innerHTML += `<li><a href="http://localhost:3000/getpage/${element.slug.current}"><figure>
+            projects.innerHTML += `<li><a href="https://ntnumakerspace.herokuapp.com/getpage/${element.slug.current}"><figure>
             <div>
                 
             </div>

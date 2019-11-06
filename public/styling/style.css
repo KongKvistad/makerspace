@@ -449,6 +449,64 @@ header > form > button {
     align-items: center;
 }
 
+#loader{
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.74);
+    z-index: 8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+#loader > img:nth-child(1) {
+    position:relative;
+    animation-duration: 3s;
+    animation-name: loadscreen;
+    animation-iteration-count: infinite;
+}
+#loader> img:nth-child(2) {
+    position: absolute;  
+}
+
+#loader > img:nth-child(3){
+    position: absolute;  
+    animation-duration: 0.4s;
+    animation-name: blink;
+    animation-iteration-count: infinite;
+    animation-direction: alternate
+    
+    
+}
+
+@keyframes loadscreen {
+    from {
+      transform: rotate(0deg)
+    }
+  
+    to {
+      transform: rotate(180deg)
+    }
+  }
+
+  @keyframes blink {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+
+
+
 .mainContPublish > form {
     display: flex;
     flex-direction: column;
@@ -473,16 +531,18 @@ header > form > button {
     justify-content: center;
     display: grid;
     grid-template-columns: repeat(2, 28vw);
-    grid-template-rows: repeat(3, 14vh);
+    grid-template-rows: repeat(3, 4em);
+    
 }
 
 .topBtns > div {
     display: flex;
     flex-direction: column-reverse;
     justify-content: center;
+    position: relative;
 }
 .topBtns > div > input {
-    height: 5vh;
+    height: 3em;
     width: 80%;
 }
 
@@ -505,14 +565,26 @@ header > form > button {
 input[name='skaper'] + label + ul {
     margin: 0px;
     list-style: none;
-    background-color: rgb(225, 225, 225);
+    background-color: rgb(254, 254, 254);
     padding: 0px;
+    width: 81.5%;
+    top: 60px;
     position: absolute;
-    top: 42vh;
-    width: 22%;
+    z-index: 8;
+    
+    box-shadow: 5px 9px 11px 1px #8080807d;
     
 }
-
+input[name='skaper'] + label + ul > li {
+    height: 2em;
+    display: flex;
+    align-items: center;
+    color: #ea5b19;
+    background-color: rgb(255, 255, 255);
+    margin: 6px;
+    padding-left: 5px;
+    border: 1px solid gray;
+}
 
 
 /*image container*/

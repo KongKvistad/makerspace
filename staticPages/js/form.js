@@ -122,7 +122,7 @@ let objArr = [];
 
 btn.addEventListener("click", e => {
     e.preventDefault()
-    
+    document.querySelector("#loader").style.display = "flex";
     
 
 
@@ -234,6 +234,9 @@ btn.addEventListener("click", e => {
       .commit() // Perform the patch and return a promise
       .then(patch => {
         console.log('Hurray,document has been patched:'+patch)
+        document.querySelector("#loader").style.display = "none";
+        window.location.href = "https://ntnumakerspace.herokuapp.com/prosjekter.html";
+
       })
       .catch(err => {
         console.error('Oh no, the update failed: ', err.message)

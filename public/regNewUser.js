@@ -81,7 +81,7 @@ document.querySelector("button").addEventListener("click", event => {
         })
         
         function sendmail(id) {
-            fetch('http://localhost:3000/gencode', {
+            fetch(window.location.origin+'/gencode', {
                 method: 'post',
                 headers: {
                 'Accept': 'application/json, text/plain, */*',

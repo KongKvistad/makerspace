@@ -381,7 +381,7 @@ header > form > button {
 }
 .mainContProjects > div:nth-child(2) > ul {
     display: grid;
-    grid-template-rows: repeat(4, 40vh);
+    grid-template-rows: repeat(auto-fill, 40vh);
     grid-template-columns: 30vw 30vw;
     justify-items: stretch;
     align-items: center;

@@ -133,7 +133,7 @@ header > form > div:nth-child(2) {
 
 header > form > div:nth-child(1) > input {
     height: 30px;
-    width: 18vw;
+    width: 25em;
     border-radius: 5px;
     border-style: solid;
     border-width: 1px;
@@ -314,9 +314,9 @@ header > form > button {
 }
 
 .mainContProjects {
-    height: 260vh;
+    height: 180vh;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
 }
@@ -326,7 +326,8 @@ header > form > button {
     align-items: center;
     justify-content: space-between;
     width: 60%;
-    height: 60%;
+    flex-basis: 5%;
+    max-height: 5%;
 
 }
 .mainContProjects >div >  span {
@@ -337,13 +338,14 @@ header > form > button {
 .mainContProjects > div > input {
     width: 29vw;
     height: 40%;
+    max-height: 3em;
     border-radius: 5px;
     z-index: 4;
 }
 
 #searchmenu {
     position: relative;
-    top: 100px;
+    top: 98px;
     right: 12vw;
     background-color: white;
     z-index: 4;
@@ -379,7 +381,7 @@ header > form > button {
 }
 .mainContProjects > div:nth-child(2) > ul {
     display: grid;
-    grid-template-rows: repeat(6, 40vh);
+    grid-template-rows: repeat(4, 40vh);
     grid-template-columns: 30vw 30vw;
     justify-items: stretch;
     align-items: center;
@@ -441,12 +443,30 @@ header > form > button {
    
 }
 
-
+.arrows{
+    display: flex;
+    flex-basis: 5%;
+    height: 12vh;
+    width: 60%;
+    margin: 0px auto;
+    justify-content: space-evenly;
+}
+#leftArrow{
+    background-color: #EA5C1A;
+    height: 3em;
+    width: 3em;
+}
+#rightArrow{
+    background-color: #EA5C1A;
+    height: 3em;
+    width: 3em;
+}
 /*publish page*/
 .mainContPublish{
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 100vh;
 }
 
 #loader{
@@ -596,6 +616,8 @@ input[name='skaper'] + label + ul > li {
     justify-content: center;
     flex-wrap: wrap;
     margin-right: 8vw;
+    width: calc(28vw * 2);
+    padding: 0px;
 }
 .preview > ol > li {
     display: flex;

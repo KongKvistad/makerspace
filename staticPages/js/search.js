@@ -1,3 +1,41 @@
+let projects = document.querySelector(".mainContProjects > div:nth-child(2) > ul")
+let interval= {"start": 0, "end": 7}
+
+
+function intervalChange(dir, interval){
+   
+        if(dir === "r"){
+            interval["start"] = interval["end"]
+            interval["end"] += 7
+            return interval
+        } else if (dir ==="l" && interval["start"] > 0) {
+            interval["start"] -= 7
+            interval["end"] -= 7
+            return interval
+        }
+    
+}
+
+
+function repaint(res){
+    res.forEach((element, idx, arr) => {
+                
+                
+
+        projects.innerHTML += `<li><a href="${window.location.origin}/getpage/${element.slug.current}"><figure>
+        <div>
+            
+        </div>
+        <h1>${element.title.length >= 20 ? element.title.slice(0, 18) + "..": element.title}</h1>
+        <div class="hover"></div>
+        <img src="${element.url}">
+        </figure></a></li>`
+        
+        
+    })
+}
+
+
 window.addEventListener("load", event => {
     let menu = document.querySelector("#searchmenu > ul");
 
@@ -9,12 +47,13 @@ window.addEventListener("load", event => {
             <input type="checkbox" value="${element._id}"></li>`
         });
     })
-    let projects = document.querySelector(".mainContProjects > div:nth-child(2) > ul")
+    
 
     //get latest projects
-    client.fetch('*[_type == "post"]{"title": title, "url": mainImage[0].asset->url, "slug": slug}').then(res => {
-        res.forEach(element => {
-            projects.innerHTML += `<li><a href="https://ntnumakerspace.herokuapp.com/getpage/${element.slug.current}"><figure>
+    client.fetch('*[_type == "post"][0..7]{"title": title, "url": mainImage[0].asset->url, "slug": slug}').then(res => {
+        res.forEach((element, idx, arr) => {
+            
+            projects.innerHTML += `<li><a href="${window.location.origin}/getpage/${element.slug.current}"><figure>
             <div>
                 
             </div>
@@ -22,15 +61,27 @@ window.addEventListener("load", event => {
             <div class="hover"></div>
             <img src="${element.url}">
             </figure></a></li>`
+            console.log(arr)
+            
         });
         //apply visual effects
     }).then(response => addEffect())
     //apply search filter functionality
     .then(something => {
         let searchMenu = document.querySelectorAll("#searchmenu > ul > li > input");
-        searchMenu.forEach(item => {
+        searchMenu.forEach((item, idx, orgArr) => {
             item.addEventListener("click", box => {
-                console.log(box)
+               if(box.target.checked === true){
+                    client.fetch(`*[_type == "post" && categories[0]._ref == "${box.target.value}"]{"title": title, "url": mainImage[0].asset->url, "slug": slug}`)
+                    .then(res => {
+                        console.log(res)
+                        projects.innerHTML = ""
+                        repaint(res) 
+                        
+                    })
+                } else{
+                    return
+                }
             })
         })
     })
@@ -83,7 +134,7 @@ btn.addEventListener("click", elem => {
         e.style.zIndex = 5;
     }));
 
-
+   
 })
 //scrollbutton
 let scrollBtn = document.querySelector("#scrollToTop")
@@ -92,3 +143,50 @@ scrollBtn.addEventListener("click", e => {
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 })
 
+//browse pages
+const arrows = document.querySelector(".arrows")
+
+arrows.addEventListener("click", e =>{
+    let target = e.target.id
+    console.log(target)
+
+    
+    
+
+        let result = intervalChange(target==="rightArrow" ? "r" : "l", interval)
+        
+        if(result !== undefined) {
+
+        projects.innerHTML = "";
+        client.fetch(`*[_type == "post"][${result["start"]}..${result["end"]}]{"title": title, "url": mainImage[0].asset->url, "slug": slug}`).then(res => {
+            repaint(res)
+        })
+    } else{
+     alert("targetIndex is 0")
+    }
+})
+
+let searchfield = document.querySelector(".mainContProjects input[type=text]")
+searchfield.addEventListener("keyup", event => {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+      // Cancel the default action, if needed
+      event.preventDefault();
+      // Trigger the button element with a click
+      console.log(event.target.value)
+      client.fetch(`*[_type == "post"][0..7]{"title": title, "url": mainImage[0].asset->url, "slug": slug}`).then(res => {
+          
+          
+          let resultArr = []
+          
+          res.forEach(elem => {
+              if(elem.title.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1){
+                resultArr.push(elem)
+                
+              }
+          })
+          projects.innerHTML = "";
+          repaint(resultArr)
+      })
+    }
+  });

@@ -26,6 +26,10 @@
     
 }
 
+.dropdown > p >i {
+    margin-left: 8px;
+}
+
 .dropdown > ul > li > p {
     margin: 0px;
     padding: 10px 10px 10px 10px;

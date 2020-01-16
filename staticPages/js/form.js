@@ -120,8 +120,39 @@ let assetArr = [];
 
 let objArr = [];
 
+let defaultPic = [{
+  alt: "test!",
+  asset: {
+    _ref: "image-494ff5ec26f2fe4a6746c35c1efadf83b30396cb-1536x1536-png",
+    _type: "reference"
+  },
+  _key: "ABNSM28930047",
+  _type: "image"
+  }]
+
 btn.addEventListener("click", e => {
     e.preventDefault()
+
+
+    let emptyflag = false
+    let topbtns = document.querySelectorAll(".topBtns input")
+    let txtArea = document.querySelector("textarea")
+
+    topbtns.forEach(elem =>{
+
+      if(elem.value === "" || txtArea.value === ""){
+        emptyflag = true
+      }
+
+    })
+
+    if(emptyflag){
+      alert("No empty fields, please!")
+      return
+    }else {
+    
+    
+
     document.querySelector("#loader").style.display = "flex";
     
 
@@ -157,7 +188,24 @@ btn.addEventListener("click", e => {
         from: date.toISOString(),
         course: e.target.form.kurs.value,
         tech: e.target.form.tech.value,
-        categories: [selectedBtn]  
+        categories: [selectedBtn] ,
+        body:[
+          {
+            "_key": "abklfl2",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "abklfl2",
+                "_type": "span",
+                "marks": [],
+                "text": e.target.form.body.value
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ],
+
       }
       
       client.create(doc).then(res => {
@@ -167,6 +215,9 @@ btn.addEventListener("click", e => {
  
     //image assets
     uploadAndAttach = () => {
+
+      if(imageArr.length > 0){
+
       for(var i = 0; i < imageArr.length; i++) {
         client.assets
         .upload('image', imageArr[i], {contentType: 'image/png', filename: imageArr[i].name})
@@ -205,6 +256,33 @@ btn.addEventListener("click", e => {
         })
       
       }
+    } else {
+
+      console.log("no images!")
+      var promise1 = new Promise(function(resolve, reject) {
+        setTimeout(function() {
+          resolve(client.fetch(`*[_type == "sanity.imageAsset" && _id == "image-494ff5ec26f2fe4a6746c35c1efadf83b30396cb-1536x1536-png"]`))
+        }, 3000);
+      })
+      promise1.then(res => {
+        
+        objArr.push({
+          alt: "test!",
+          asset: {
+            _ref: res[0]._id,
+            _type: "reference"
+          },
+          _key: "ABNSM28930047",
+          _type: "image"
+          })
+          
+      })
+      .then((obj) => {
+        makeReq(objArr)
+      })
+
+
+    }
       
 
     }
@@ -217,6 +295,7 @@ btn.addEventListener("click", e => {
     generateSlug = () => {
       let str = "";
       let arr = e.target.form.navn.value.split(" ");
+      let randnumb = []
       arr.forEach((elem, idx) => {
         if (idx === arr.length - 1){
           str += elem
@@ -224,7 +303,11 @@ btn.addEventListener("click", e => {
           str += elem + "-"
         }
       })
-      return str
+      
+      for(var i = 0; i < 6; i++){
+        randnumb.push(Math.floor(Math.random() * 9))
+      }
+      return str.concat(randnumb.join(""))
      }
 
     client
@@ -235,13 +318,13 @@ btn.addEventListener("click", e => {
       .then(patch => {
         console.log('Hurray,document has been patched:'+patch)
         document.querySelector("#loader").style.display = "none";
-        window.location.href = "https://ntnumakerspace.herokuapp.com/prosjekter.html";
+        window.location.href = window.location.origin+"/prosjekter.html";
 
       })
       .catch(err => {
         console.error('Oh no, the update failed: ', err.message)
       })
     }
-
+  }
 })
   

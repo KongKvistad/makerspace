@@ -21,7 +21,7 @@ turnform = () => {
     })
     registerform.style.boxShadow = "-6px 5px 5px rgb(0, 0, 0, 0.20)";
     
-    document.querySelector("#backBtn").style.display = "flex";
+    
     
 }
 
@@ -49,7 +49,7 @@ verifyUser = (btn) => {
           .set({verified: true}) //set the field in question
           .commit() // Perform the patch and return a promise
           .then(update => {
-            console.log(update)
+            window.location.href = window.location.origin;
           })
           .catch(err => {
             console.error('Oh no, the update failed: ', err.message)

@@ -38,3 +38,7 @@
 .dropdown > ul > li > p:hover {
     color: white;
 }
+
+.dropdown > ul > li:hover > p > a {
+    color: white;
+}

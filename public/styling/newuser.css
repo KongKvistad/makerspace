@@ -2,7 +2,7 @@
 
     display: flex;
     flex-direction: column;
-    height: 30em;
+
     align-items: center;
     justify-content: center;
     font-family: 'Helvetica';
@@ -10,10 +10,20 @@
     font-weight: bold;
     font-size: 20px;
 }
+
+#signup-img{
+    width:10em;
+}
 .mainSignUp .clicked{
     -webkit-animation: flip-vertical-left 0.8s cubic-bezier(0.680, -0.550, 0.265, 1.550) both;
             animation: flip-vertical-left 0.8s cubic-bezier(0.680, -0.550, 0.265, 1.550) both;
 }
+
+.clicked-rev{
+    -webkit-animation: flip-back 0.8s cubic-bezier(0.680, -0.550, 0.265, 1.550) both;
+            animation: flip-back 0.8s cubic-bezier(0.680, -0.550, 0.265, 1.550) both;
+}
+
 
 @-webkit-keyframes flip-vertical-left {
     0% {
@@ -36,6 +46,29 @@
     }
   }
 
+@-webkit-keyframes flip-back {
+0% {
+    -webkit-transform: rotateY(-180deg);
+            transform: rotateY(-180deg);
+    
+}
+100% {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
+}
+}
+@keyframes flip-vertical-back {
+    0% {
+        -webkit-transform: rotateY(-180deg);
+                transform: rotateY(-180deg);
+        
+    }
+    100% {
+        -webkit-transform: rotateY(0);
+        transform: rotateY(0);
+    }
+}
+
 .mainSignUp  > form {
     display: flex;
     flex-direction: column;
@@ -56,7 +89,9 @@
 
 .mainSignUp  > form button {
     height: 3em;
-    background-color: orange;
+    background-color: #ea5c1b;
+    color: white;
+    font-weight: bold;
 }
 header > div{
     padding: 0px !important;
@@ -68,12 +103,14 @@ header > div{
 }
 
 #backBtn  {
-    display: none;
+    display: flex;
     align-items: center;
+    margin: 10px 0px;
     
 }
 #backBtn > a{
-    font-size: 33px;
+    font-size: 23px;
     font-weight: 300;
     padding-left: 13px;
+    text-decoration: underline;
 }

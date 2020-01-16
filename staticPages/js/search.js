@@ -174,7 +174,10 @@ searchfield.addEventListener("keyup", event => {
       event.preventDefault();
       // Trigger the button element with a click
       console.log(event.target.value)
-      client.fetch(`*[_type == "post"][0..7]{"title": title, "url": mainImage[0].asset->url, "slug": slug}`).then(res => {
+
+      let decideMax = event.target.value==="" ? '[0..7]' : ''
+
+      client.fetch(`*[_type == "post"]${decideMax}{"title": title, "url": mainImage[0].asset->url, "slug": slug}`).then(res => {
           
           
           let resultArr = []

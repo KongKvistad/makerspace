@@ -195,9 +195,11 @@ header > form > button {
     font-size: 15px;
 }
 .mainContLandingpage > div > figure > img{
-    object-fit: none;
+    object-fit: contain;
     height: 20vw;
     width: 20vw;
+    max-width: 17em;
+    max-height: 17em;
     
     
 }
@@ -455,11 +457,23 @@ header > form > button {
     background-color: #EA5C1A;
     height: 3em;
     width: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    /* font-size: 1.3em; */
+    font-weight: 700;
 }
 #rightArrow{
     background-color: #EA5C1A;
     height: 3em;
     width: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    /* font-size: 1.3em; */
+    font-weight: 700;
 }
 /*publish page*/
 .mainContPublish{

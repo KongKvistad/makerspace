@@ -115,7 +115,7 @@
     <script>
     window.addEventListener("load", event => {
         let latestProjects = document.querySelectorAll(".boxContainer")
-        client.fetch('*[_type == "post"][0..2]{"title": title, "author": author -> name, "url": mainImage[0].asset->url, "slug": slug, "body": body[0].children[0].text}').then(res => {
+        client.fetch('*[_type == "post"]| order(_createdAt desc) [0..2]{"title": title, "author": author -> name, "url": mainImage[0].asset->url, "slug": slug, "body": body[0].children[0].text}').then(res => {
             res.forEach((resp, idx) => {
                 latestProjects[idx].children[0].src = resp.url;
 

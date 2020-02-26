@@ -17,7 +17,9 @@ a {
 header {
     display: flex;
     height: fit-content;
-    justify-content: space-around;
+    justify-content: space-between;
+    width: 73vw;
+    margin: 0px auto;
     
 }
 
@@ -25,7 +27,7 @@ header > div:nth-child(1) {
     align-items: center;
     justify-content: flex-start;
     display: flex;
-    padding-left: 4.2vw;
+   
 }
 
 header > div:nth-child(1) > a > img {
@@ -46,20 +48,20 @@ header > div:nth-child(2) {
 
 }
 header > div:nth-child(2) > ul {
-    display: grid;
-    grid-template-columns:  repeat(3, 11.5em);
+    display: flex;
     list-style: none;
     padding: 0%;
     margin-top: 0%;
     margin-bottom: 1vh;
-    
+    justify-content: flex-end;
     
     
 }
 header > div:nth-child(2) > ul > li:nth-child(1) {
     grid-column: 2/3;
     font-size: 15px;
-    justify-self: center;
+    justify-self: flex-end;
+    margin-right: 9em;
     
 }
 header > div:nth-child(2) > ul > li:nth-child(2) {
@@ -78,9 +80,13 @@ header > div:nth-child(2) > nav > ul {
     font-size: 18px;
     letter-spacing: 1px;
     align-items: flex-start;
-    justify-content: space-evenly;
-    width: 28em;
+    justify-content: flex-end;
+
     
+}
+
+nav > ul > li:not(:last-of-type){
+    margin-right: 3em;
 }
 
 .dropdown-content {
@@ -156,6 +162,7 @@ header > form > button {
     grid-template-rows: 39em auto;
     grid-template-columns: auto;
     justify-items: center;
+    margin-bottom: 8em;
     
 
 }

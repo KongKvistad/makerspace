@@ -1,5 +1,5 @@
 .dropdown {
-    position: absolute;
+    position: relative;
     background-color: white;
     height: fit-content;
     z-index: 5;
@@ -10,6 +10,8 @@
     text-align: -webkit-left;
     list-style: none;
     padding: 0px;
+    position: absolute;
+    background-color: white;
 }
 
 

@@ -23,7 +23,7 @@ window.addEventListener("load", e => {
         <li><p>Rediger profil</p></li>
         </ul>
         </div>`
-        loginDiv.style.marginRight = "6em";
+        
         isLoggedIn = true;
 
 

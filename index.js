@@ -12,6 +12,8 @@ const port = process.env.PORT || 3000;
 let app = express();
 
 
+//body parser is needed to parse request bodies
+
 const bodyParser = require('body-parser')
 
 app.use(bodyParser.urlencoded({
@@ -28,6 +30,10 @@ app.use(function(req, res, next) {
   next();
 });
 
+
+// sanityclient is a dependency for wiritng queries to sanity.
+// consider the following config data to connect to the right dataset and project in sanity.
+
 const client = sanityClient({
   projectId: 'fsygm6xc',
     dataset: 'dummydata',
@@ -36,7 +42,7 @@ const client = sanityClient({
 })
 
 
-
+//generate random security key to be emailed to the end user
 function genKey(length){
   var text = "";
   var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -65,7 +71,7 @@ app.post('/gencode', function (req, res, ) {
   })
   
 
-  
+  //function to issue sec key over email. uses an API called "send in blue"
 
   function sendMail(email, navn, id) { 
     let key = genKey(5)
@@ -109,6 +115,10 @@ app.post('/gencode', function (req, res, ) {
 
   
 })
+
+// snippet for rendering dynamic views. queries sanity for data and then injects them into either eventpage.ejs or projectpage.ejs.
+// you COULD in theory fetch these data from the front end, but you  needto generate unique URLs for people to be able to link to their projects.
+// hence the server-side rendering.
 
 app.set("view engine", "ejs");
 

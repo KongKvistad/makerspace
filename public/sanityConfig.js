@@ -1,3 +1,5 @@
+// same config as in index.js
+
 var client = window.SanityClient({
             // Find your project ID and dataset in `sanity.json` in your studio project
             projectId: 'fsygm6xc',
